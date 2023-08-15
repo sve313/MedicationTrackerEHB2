@@ -1,0 +1,3 @@
+package com.example.medicationtrackerehb.presentation.inventory
+
+sealed interface InventoryEvents

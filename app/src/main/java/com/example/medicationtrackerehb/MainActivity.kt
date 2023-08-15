@@ -3,44 +3,24 @@ package com.example.medicationtrackerehb
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.medicationtrackerehb.ui.theme.MedicationTrackerEHBTheme
+import androidx.navigation.compose.rememberNavController
+import com.example.medicationtrackerehb.core.nav_graph.HOME_ROUTE
+import com.example.medicationtrackerehb.core.nav_graph.SetupNavGraph
+import com.example.medicationtrackerehb.ui.theme.MedicationTrackerTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MedicationTrackerEHBTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
+            MedicationTrackerTheme {
+                SetupNavGraph(
+                    navController = rememberNavController(),
+                    startRoute = HOME_ROUTE
+                )
             }
         }
     }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MedicationTrackerEHBTheme {
-        Greeting("Android")
-    }
 }

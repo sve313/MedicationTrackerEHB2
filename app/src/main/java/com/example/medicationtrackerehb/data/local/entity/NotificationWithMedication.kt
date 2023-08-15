@@ -5,9 +5,9 @@ import com.example.medicationtrackerehb.core.enums.TakeStatus
 import java.io.Serializable
 
 data class NotificationWithMedication(
-    val drugId : Int,
+    val medicationId : Int,
     val reminderId: Int,
-    val drugName : String,
+    val medicationName : String,
     val takeStatus : TakeStatus,
     val medicationForm: MedicationForm,
     val time : Long,

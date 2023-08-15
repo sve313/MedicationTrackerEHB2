@@ -7,7 +7,7 @@ import com.example.medicationtrackerehb.data.local.entity.NotificationWithMedica
 import kotlinx.coroutines.flow.Flow
 
 const val QUERY_FOR_REMINDER_WITH_MEDICATION =
-    "SELECT MedicationEntity.id as drugId, MedicationEntity.name as drugName, MedicationEntity.inventory as inventory," +
+    "SELECT MedicationEntity.id as medicationId, MedicationEntity.name as medicationName, MedicationEntity.inventory as inventory," +
             "NotificationEntity.id as reminderId, NotificationEntity.takeStatus as takeStatus,  " +
             "NotificationEntity.time as time , MedicationEntity.form as medicationForm, " +
             "MedicationEntity.isNotificationOn as isNotificationOn " +
@@ -21,8 +21,8 @@ interface MedicationDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertMedication(medication: MedicationEntity): Long
 
-    @Query("UPDATE medicationentity set isNotificationOn = :isNotificationOn WHERE id = :drugId")
-    suspend fun updateMedication(drugId: Int, isNotificationOn: Boolean)
+    @Query("UPDATE medicationentity set isNotificationOn = :isNotificationOn WHERE id = :medicationId")
+    suspend fun updateMedication(medicationId: Int, isNotificationOn: Boolean)
 
     @Query("DELETE FROM medicationentity WHERE id = :medicationId")
     suspend fun removeMedication(medicationId: Int)
@@ -55,7 +55,7 @@ interface MedicationDao {
     fun getMedicaitonWithNotificationList(): Flow<List<NotificationWithMedication>>
 
     @Query(
-        "SELECT MedicationEntity.id as drugId, MedicationEntity.name as drugName, MedicationEntity.inventory as inventory," +
+        "SELECT MedicationEntity.id as medicationId, MedicationEntity.name as medicationName, MedicationEntity.inventory as inventory," +
                 "NotificationEntity.id as reminderId, NotificationEntity.takeStatus as takeStatus,  " +
                 "NotificationEntity.time as time , MedicationEntity.form as medicationForm, " +
                 "MedicationEntity.isNotificationOn as isNotificationOn " +
