@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -26,7 +25,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.example.medicationtrackerehb.R
 import com.example.medicationtrackerehb.core.enums.TakeStatus
 import com.example.medicationtrackerehb.core.medicationFormPainter
 import com.example.medicationtrackerehb.data.local.entity.NotificationWithMedication
@@ -95,12 +96,18 @@ fun ReminderItems(
                             )
                             .padding(horizontal = 6.dp, vertical = 1.dp)
                     ) {
-                        Text(text = reminder.takeStatus.name)
+                        Text(when (reminder.takeStatus){
+                            TakeStatus.Missed -> stringResource(R.string.missed_takestatus)
+                            TakeStatus.Pending -> stringResource(R.string.pending_takestatus)
+                            TakeStatus.Skipped -> stringResource(R.string.skipped_takestatus)
+                            TakeStatus.Taken -> stringResource(R.string.taken_takestatus)
+                        })
+                        }
                     }
 
 
                 }
-                Spacer(modifier = Modifier.weight(1f))
+                //Spacer(modifier = Modifier.weight(1f))
 
                 Column(
                     modifier = Modifier
@@ -122,7 +129,7 @@ fun ReminderItems(
                 }
 
             }
-            Spacer(modifier = Modifier.size(8.dp))
+            //Spacer(modifier = Modifier.size(8.dp))
         }
-    }
+
 }

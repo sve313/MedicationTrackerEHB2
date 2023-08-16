@@ -31,11 +31,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
+import com.example.medicationtrackerehb.R
 import com.example.medicationtrackerehb.presentation.add_reminder.util.IntervalInTimes
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -81,7 +83,7 @@ fun TimeSection(
         modifier = modifier
     ) {
         if (intervalInTimes != IntervalInTimes.AsNeeded) {
-            Text(text = "Time")
+            Text(text = stringResource(R.string.time_timesection))
 
             Column(
                 modifier = Modifier.fillMaxWidth(),
@@ -140,7 +142,7 @@ fun TimeSection(
                     ) {
                         Icon(imageVector = Icons.Default.Add, contentDescription = null)
                         Spacer(modifier = Modifier.size(16.dp))
-                        Text(text = "ADD TIME")
+                        Text(text = stringResource(R.string.add_time_timesection))
                     }
                 }
             }

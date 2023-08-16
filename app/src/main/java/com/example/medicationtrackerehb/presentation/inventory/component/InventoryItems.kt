@@ -25,7 +25,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.example.medicationtrackerehb.R
 import com.example.medicationtrackerehb.core.enums.MedicineStatus
 import com.example.medicationtrackerehb.core.medicationFormPainter
 import com.example.medicationtrackerehb.domain.model.Medication
@@ -90,7 +92,11 @@ fun InventoryItems(
                             )
                             .padding(horizontal = 6.dp, vertical = 1.dp)
                     ) {
-                        Text(text = medication.status.name)
+                        Text(when (medication.status){
+                            MedicineStatus.Active-> stringResource(R.string.active_medicinestatus)
+                            MedicineStatus.Pending-> stringResource(R.string.pending_medicinestatus)
+                            MedicineStatus.Complete-> stringResource(R.string.complete_medicinestatus)
+                        })
                     }
 
 

@@ -1,11 +1,11 @@
 package com.example.medicationtrackerehb.core.nav_graph
 
-import android.util.Log
+
 import androidx.navigation.*
 import androidx.navigation.compose.composable
 import com.example.medicationtrackerehb.presentation.inventory.InventoryScreen
 import com.example.medicationtrackerehb.presentation.reminder.ReminderHomeScreen
-import com.example.medicationtrackerehb.presentation.reminder_details.ReminderDetailsScreen
+
 
 fun NavGraphBuilder.homeNavGraph(
     navController: NavHostController

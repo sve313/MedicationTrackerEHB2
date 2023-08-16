@@ -34,6 +34,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
@@ -41,6 +42,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.medicationtrackerehb.R
 import com.example.medicationtrackerehb.presentation.add_reminder.component.DateSelectSection
 import com.example.medicationtrackerehb.presentation.add_reminder.component.MedicationCustomTextField
 import com.example.medicationtrackerehb.presentation.add_reminder.component.MedicationFormSection
@@ -60,19 +62,6 @@ fun AddReminderScreen(
     val state = viewModel.state.collectAsState()
 
     val context = LocalContext.current
-//    val hasNotificationPermission by remember {
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-//            mutableStateOf(
-//                ContextCompat.checkSelfPermission(
-//                    context,
-//                    Manifest.permission.POST_NOTIFICATIONS
-//                ) == PackageManager.PERMISSION_GRANTED
-//            )
-//        } else {
-//            mutableStateOf(true)
-//        }
-//    }
-
     Scaffold(
         scaffoldState = scaffoldState,
     ) { paddingValue ->
@@ -105,7 +94,7 @@ fun AddReminderScreen(
                 )
                 Text(
                     modifier = Modifier.align(Alignment.Center),
-                    text = "Add Reminder",
+                    text = stringResource(R.string.add_reminder_addreminderscreen),
                     fontSize = 22.sp,
                     fontWeight = FontWeight.Black
                 )
@@ -119,7 +108,7 @@ fun AddReminderScreen(
             ) {
                 MedicationCustomTextField(onValueChange = {
                     viewModel.onEvent(AddReminderEvents.MedicineNameChange(it))
-                }, text = "Name", value = state.value.medicineName)
+                }, text = stringResource(R.string.name_addreminderscreen), value = state.value.medicineName)
 
                 Spacer(modifier = Modifier.height(16.dp))
 
@@ -147,7 +136,7 @@ fun AddReminderScreen(
                             )
                         )
                     },
-                    text = "Number of doses",
+                    text = stringResource(R.string.number_of_doses_addreminderscreen),
                     value = state.value.medicationNumberOfDoses,
                     keyboardType = KeyboardType.Decimal,
                 )
@@ -160,7 +149,7 @@ fun AddReminderScreen(
                     onValueChange = {
                         viewModel.onEvent(AddReminderEvents.MedicineInventoryChange(it))
                     },
-                    text = "Inventory",
+                    text = stringResource(R.string.inventory_addreminderscreen),
                     value = state.value.medicationInventory,
                     keyboardType = KeyboardType.Decimal
                 )
@@ -185,7 +174,7 @@ fun AddReminderScreen(
                 Spacer(modifier = Modifier.height(12.dp))
                 // Frequency
 
-                Text(text = "Frequency", color = Color(0xFF6D6C6C))
+                Text(text = stringResource(R.string.frequency_addreminderscreen), color = Color(0xFF6D6C6C))
 
                 Row(
                     modifier = Modifier
@@ -213,7 +202,7 @@ fun AddReminderScreen(
                                 },
                         ) {
                             Text(
-                                text = i.interval,
+                                text = LocalContext.current.getString(i.interval),
                                 modifier = Modifier
                                     .fillMaxSize()
                                     .padding(8.dp)
@@ -237,7 +226,7 @@ fun AddReminderScreen(
                                 )
                             )
                         },
-                        text = "Time between doses",
+                        text = stringResource(R.string.time_between_doses_addreminderscreen),
                         value = state.value.intervalBetweenDoses,
                         keyboardType = KeyboardType.Decimal
                     )
@@ -270,7 +259,7 @@ fun AddReminderScreen(
                         viewModel.onEvent(AddReminderEvents.SaveMedicineReminder)
                         navController.popBackStack()
                     }) {
-                    Text(text = "Save")
+                    Text(text = stringResource(R.string.save_addreminderscreen))
                 }
 
             }

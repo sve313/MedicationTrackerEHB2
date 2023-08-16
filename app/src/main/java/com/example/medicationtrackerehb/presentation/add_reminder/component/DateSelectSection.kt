@@ -33,10 +33,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
+import com.example.medicationtrackerehb.R
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -82,7 +84,7 @@ fun DateSelectSection(
     ) {
 
         CustomDatePickerField(
-            text = "Start Date",
+            text = stringResource(R.string.start_date_dateselectionsection),
             modifier = Modifier
                 .weight(1f),
             onValueChange = {},
@@ -95,7 +97,7 @@ fun DateSelectSection(
         Spacer(modifier = Modifier.width(32.dp))
 
         CustomDatePickerField(
-            text = "End Date",
+            text = stringResource(R.string.end_date_dateselectionsection),
             modifier = Modifier.weight(1f),
             onValueChange = {},
             timestamp = endDateValue,
@@ -142,7 +144,7 @@ fun CalendarDialog(
             ) {
 
                 Text(
-                    text = "Select Date",
+                    text = stringResource(R.string.select_date_dateselectionsection),
                     style = MaterialTheme.typography.h5,
                     color = MaterialTheme.colors.onBackground
                 )

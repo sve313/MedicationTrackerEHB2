@@ -3,7 +3,14 @@ package com.example.medicationtrackerehb.presentation.add_reminder.component
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
@@ -17,6 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.medicationtrackerehb.R
 import com.example.medicationtrackerehb.core.enums.MedicationForm
@@ -31,7 +39,7 @@ fun MedicationFormSection(
     val interactionSource = remember {
         MutableInteractionSource()
     }
-    Text(text = "Type", color = Color(0xFF6D6C6C))
+    Text(text = stringResource(R.string.type_medicationformsection), color = Color(0xFF6D6C6C))
     Spacer(modifier = Modifier.height(8.dp))
 
     LazyRow(modifier = modifier) {

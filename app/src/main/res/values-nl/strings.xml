@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Medication Tracker(NL)</string>
+    <string name="medication_reminder">Medicatie Herrinering</string>
+    <string name="_1_medication_s_taken">, 1 medicatie ingenomen</string>
+    <string name="no_taken_history_found">geen %1$s ingenomen geschiedenis gevonden</string>
+    <string name="get_your_medication">neem uw medicatie %1$s</string>
+    <string name="medication_tracker_title">Medication Tracker(NL)</string>
+    <string name="get_your_medication_notification_text">neem uw medicatie  %1$s</string>
+    <string name="select_date_dateselectionsection">Kies een datum</string>
+    <string name="start_date_dateselectionsection">Start datum</string>
+    <string name="number_of_doses_addreminderscreen">Hoeveel dosissen</string>
+    <string name="name_addreminderscreen">Naam</string>
+    <string name="inventory_addreminderscreen">Inventaris</string>
+    <string name="frequency_addreminderscreen">"Frequentie "</string>
+    <string name="time_between_doses_addreminderscreen">Tijd tussen dosissen</string>
+    <string name="save_addreminderscreen">Opslaan</string>
+    <string name="add_reminder_addreminderscreen">Herrinering toevoegen</string>
+    <string name="end_date_dateselectionsection">Eind datum</string>
+    <string name="type_medicationformsection">Type</string>
+    <string name="time_timesection">Tijd</string>
+    <string name="add_time_timesection">Tijd toevoegen</string>
+    <string name="every_x_hour_timeintervall">Om de X uur</string>
+    <string name="specific_hours_of_day_intervaltimes">Specifieke uren van de dag</string>
+    <string name="as_needed_timeIntervall">Zo als nodig</string>
+    <string name="pending_takestatus">Uitstaand</string>
+    <string name="taken_takestatus">Ingenomen</string>
+    <string name="skipped_takestatus">Overgeslagen</string>
+    <string name="missed_takestatus">Gemist</string>
+    <string name="complete_medicinestatus">Voltooid</string>
+    <string name="pending_medicinestatus">In behandeling</string>
+    <string name="active_medicinestatus">Actief</string>
+    <string name="inventory_title">Inventaris</string>
+</resources>

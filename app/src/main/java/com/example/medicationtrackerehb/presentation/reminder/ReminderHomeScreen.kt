@@ -41,11 +41,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.medicationtrackerehb.R
 import com.example.medicationtrackerehb.core.nav_graph.ADD_EDIT_ROUTE
 import com.example.medicationtrackerehb.core.nav_graph.Screen
 import com.example.medicationtrackerehb.data.local.entity.NotificationWithMedication
@@ -175,7 +177,7 @@ fun ReminderHomeScreen(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
-                    Text(text = "Pill Reminder", fontSize = 22.sp, color = Color.White)
+                    Text(text = stringResource(R.string.medication_tracker_title), fontSize = 22.sp, color = Color.White)
                 }
 
                 Spacer(modifier = Modifier.height(8.dp))

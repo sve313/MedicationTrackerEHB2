@@ -29,12 +29,14 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.medicationtrackerehb.R
 import com.example.medicationtrackerehb.core.nav_graph.ADD_EDIT_ROUTE
 import com.example.medicationtrackerehb.core.nav_graph.Screen
 import com.example.medicationtrackerehb.presentation.inventory.component.InventoryItems
@@ -109,7 +111,7 @@ fun InventoryScreen(
                         .padding(16.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Text(text = "Inventory", fontSize = 22.sp, color = Color.White)
+                    Text(text = stringResource(R.string.inventory_title), fontSize = 22.sp, color = Color.White)
                 }
                 Spacer(modifier = Modifier.size(8.dp))
                 Column(

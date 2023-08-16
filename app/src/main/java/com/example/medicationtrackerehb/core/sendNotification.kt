@@ -24,7 +24,11 @@ fun NotificationManager.sendNotification(messageBody: String, context: Context, 
         "reminder_channel"
     )
         .setSmallIcon(R.drawable.ic_tablet)
-        .setContentTitle("get your medication ${reminder.medicationName}")
+        .setContentTitle(
+            context.getString(
+                R.string.get_your_medication_notification_text,
+                reminder.medicationName
+            ))
         .setContentText(messageBody)
         .setContentIntent(pendingIntent)
         .setAutoCancel(true)
