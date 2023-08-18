@@ -30,4 +30,6 @@
     <string name="pending_medicinestatus">Pending</string>
     <string name="active_medicinestatus">Active</string>
     <string name="inventory_title">Inventory</string>
+    <string name="no_medication_today_reminderhomescreen">No Medication Today</string>
+    <string name="no_medication_added_inventoryscreen">No Medication Added</string>
 </resources>

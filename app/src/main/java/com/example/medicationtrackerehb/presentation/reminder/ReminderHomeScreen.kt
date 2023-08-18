@@ -217,7 +217,7 @@ fun ReminderHomeScreen(
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
 
-                        Text(text = "No Medication Today", style = MaterialTheme.typography.h5)
+                        Text(text = stringResource(R.string.no_medication_today_reminderhomescreen), style = MaterialTheme.typography.h5)
 
                     }
 

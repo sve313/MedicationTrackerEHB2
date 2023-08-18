@@ -136,7 +136,7 @@ fun InventoryScreen(
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
 
-                            Text(text = "No Medication Added", style = MaterialTheme.typography.h5)
+                            Text(text = stringResource(R.string.no_medication_added_inventoryscreen), style = MaterialTheme.typography.h5)
 
                         }
                     }

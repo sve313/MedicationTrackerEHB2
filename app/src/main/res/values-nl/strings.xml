@@ -31,4 +31,6 @@
     <string name="pending_medicinestatus">In behandeling</string>
     <string name="active_medicinestatus">Actief</string>
     <string name="inventory_title">Inventaris</string>
+    <string name="no_medication_today_reminderhomescreen">Geen medicatie vandaag</string>
+    <string name="no_medication_added_inventoryscreen">Geen medicatie vandaag</string>
 </resources>

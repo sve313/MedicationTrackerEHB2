@@ -1,5 +1,6 @@
 package com.example.medicationtrackerehb.presentation.add_reminder.component
 
+import android.os.Build
 import android.util.Log
 import android.widget.TimePicker
 import androidx.compose.foundation.background
@@ -196,6 +197,7 @@ fun CustomTimeDialog(
 
 }
 
+
 @Composable
 fun CustomTimeView(
     selectedTime: Long? = null,
@@ -207,21 +209,40 @@ fun CustomTimeView(
             TimePicker(context)
         },
         update = { view ->
-            val calendar = Calendar.getInstance()
-            if (selectedTime != null) {
-                calendar.timeInMillis = selectedTime
+            if(Build.VERSION.SDK_INT<=23){
+                val calendar = Calendar.getInstance()
+                if (selectedTime != null) {
+                    calendar.timeInMillis = selectedTime
+                    view.currentHour = calendar.get(Calendar.HOUR_OF_DAY)
+                    view.currentMinute = calendar.get(Calendar.MINUTE)
+                }
+                view.currentHour = calendar.get(Calendar.HOUR_OF_DAY)
+                view.currentMinute = calendar.get(Calendar.MINUTE)
+                onTimeChange((view.currentHour * 3600000L) + (view.currentMinute * 60000L))
+
+                view.setIs24HourView(false)
+
+                view.setOnTimeChangedListener { timePicker, _, _ ->
+                    val timeInMilliSec = (timePicker.currentHour * 3600000L) + (timePicker.currentMinute * 60000L)
+                    onTimeChange(timeInMilliSec)
+            }
+            }else{
+                val calendar = Calendar.getInstance()
+                if (selectedTime != null) {
+                    calendar.timeInMillis = selectedTime
+                    view.hour = calendar.get(Calendar.HOUR_OF_DAY)
+                    view.minute = calendar.get(Calendar.MINUTE)
+                }
                 view.hour = calendar.get(Calendar.HOUR_OF_DAY)
                 view.minute = calendar.get(Calendar.MINUTE)
+                onTimeChange((view.hour * 3600000L) + (view.minute * 60000L))
+
+                view.setIs24HourView(false)
+
+                view.setOnTimeChangedListener { timePicker, _, _ ->
+                    val timeInMilliSec = (timePicker.hour * 3600000L) + (timePicker.minute * 60000L)
+                    onTimeChange(timeInMilliSec)
             }
-            view.hour = calendar.get(Calendar.HOUR_OF_DAY)
-            view.minute = calendar.get(Calendar.MINUTE)
-            onTimeChange((view.hour * 3600000L) + (view.minute * 60000L))
-
-            view.setIs24HourView(false)
-
-            view.setOnTimeChangedListener { timePicker, _, _ ->
-                val timeInMilliSec = (timePicker.hour * 3600000L) + (timePicker.minute * 60000L)
-                onTimeChange(timeInMilliSec)
             }
 
         }
